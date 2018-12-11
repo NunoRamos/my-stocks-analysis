@@ -1,8 +1,10 @@
 ﻿using StockAnalysis.Models;
+using StockAnalysis.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace StockAnalysis.ViewsModels
 {
@@ -17,13 +19,23 @@ namespace StockAnalysis.ViewsModels
             this.CompanyStocks.Add(new CompanyStocks
             {
                 Symbol = "GOOG",
-                ClosingPrice = 10
+                AtualPrice = 10
             });
 
             this.CompanyStocks.Add(new CompanyStocks
             {
                 Symbol = "MSF",
-                ClosingPrice = 15
+                AtualPrice = 15
+            });
+        }
+
+        public async Task UpdateCompanyStocksAsync()
+        {
+            var companyStocks = await API.GetCompanyStocks();
+            this.CompanyStocks.Clear();
+            companyStocks.ForEach((companyStock) =>
+            {
+                this.CompanyStocks.Add(companyStock);
             });
         }
     }

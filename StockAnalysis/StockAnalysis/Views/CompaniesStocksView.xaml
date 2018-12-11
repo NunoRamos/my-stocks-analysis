@@ -13,7 +13,7 @@
                 <ViewCell>
                     <StackLayout>
                         <Label Text="{Binding Symbol}" />
-                        <Label Text="{Binding ClosingPrice}" />
+                        <Label Text="{Binding AtualPrice}" />
                     </StackLayout>
                 </ViewCell>
             </DataTemplate>
