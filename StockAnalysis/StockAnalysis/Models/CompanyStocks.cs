@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using System.Text;
 
 namespace StockAnalysis.Models
@@ -24,7 +25,7 @@ namespace StockAnalysis.Models
         public Double AtualPrice { get; set; }
 
         [JsonProperty("06. volume")]
-        public int Volume { get; set; }
+        public BigInteger Volume { get; set; }
 
         [JsonProperty("10. change percent")]
         public String ChangePercent { get; set; }

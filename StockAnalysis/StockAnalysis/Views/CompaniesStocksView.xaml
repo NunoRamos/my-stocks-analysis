@@ -1,15 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="StockAnalysis.Views.CompaniesStocksView">
-  <ListView x:Name="MyListView"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="StockAnalysis.Views.CompaniesStocksView"
+             Title="List of Companies"
+             Icon="baseline_list_black_18dp.png">
+    <ListView x:Name="MyListView"
             ItemsSource="{Binding CompanyStocks}"
             ItemTapped="Handle_ItemTapped"
             CachingStrategy="RecycleElement">
-            
-    <!--Built in Cells-->
-    <ListView.ItemTemplate>
-        <DataTemplate>
+
+        <!--Built in Cells-->
+        <ListView.ItemTemplate>
+            <DataTemplate>
                 <ViewCell>
                     <StackLayout>
                         <Label Text="{Binding Symbol}" />
@@ -17,10 +19,10 @@
                     </StackLayout>
                 </ViewCell>
             </DataTemplate>
-    </ListView.ItemTemplate>
-    
-    <!--Custom View Cells-->
-    <!--
+        </ListView.ItemTemplate>
+
+        <!--Custom View Cells-->
+        <!--
     <ListView.ItemTemplate>
       <DataTemplate>
         <ViewCell>
@@ -34,5 +36,5 @@
       </DataTemplate>
     </ListView.ItemTemplate>
     -->
-  </ListView>
+    </ListView>
 </ContentPage>

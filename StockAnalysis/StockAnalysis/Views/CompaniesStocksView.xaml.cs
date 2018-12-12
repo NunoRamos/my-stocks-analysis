@@ -18,7 +18,7 @@ namespace StockAnalysis.Views
         public CompaniesStocksView()
         {
             InitializeComponent();
-            Console.Write("Entao fdps");
+
             companiesStocksViewModel = new CompanyStocksViewModel();
             BindingContext = companiesStocksViewModel;
         }
