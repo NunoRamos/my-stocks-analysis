@@ -37,5 +37,11 @@ namespace StockAnalysis.Views
             //Deselect Item
             ((ListView)sender).SelectedItem = null;
         }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            await companiesStocksViewModel.UpdateCompanyStocksAsync();
+        }
     }
 }
