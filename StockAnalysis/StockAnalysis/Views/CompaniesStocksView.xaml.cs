@@ -1,4 +1,5 @@
 ﻿using StockAnalysis.ViewsModels;
+using StockAnalysis.Models;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace StockAnalysis.Views
     public partial class CompaniesStocksView : ContentPage
     {
         CompanyStocksViewModel companiesStocksViewModel;
+        CompanyStockView companyView;
 
         public CompaniesStocksView()
         {
@@ -27,8 +29,10 @@ namespace StockAnalysis.Views
         {
             if (e.Item == null)
                 return;
-
-            await DisplayAlert("Item Tapped", "An item was tapped.", "OK");
+            var companyStocks = e.Item as CompanyStocks;
+            companyView = new CompanyStockView(companyStocks.Symbol);
+            await this.Navigation.PushAsync(companyView);
+            //await DisplayAlert("Item Tapped", "An item was tapped.", "OK");
 
             //Deselect Item
             ((ListView)sender).SelectedItem = null;

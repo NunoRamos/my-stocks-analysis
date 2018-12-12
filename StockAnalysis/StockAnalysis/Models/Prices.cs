@@ -6,6 +6,6 @@ namespace StockAnalysis.Models
 {
     class Prices
     {
-        public 
+        
     }
 }

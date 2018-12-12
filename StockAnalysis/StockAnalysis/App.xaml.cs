@@ -11,9 +11,8 @@ namespace StockAnalysis
         public App()
         {
             InitializeComponent();
-
-            // MainPage = new MainPage();
-            MainPage = new CompaniesStocksView();
+     
+            MainPage = new NavigationPage(new CompaniesStocksView());
         }
 
         protected override void OnStart()
