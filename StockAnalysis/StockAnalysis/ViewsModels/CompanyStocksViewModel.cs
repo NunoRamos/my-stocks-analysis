@@ -12,7 +12,7 @@ namespace StockAnalysis.ViewsModels
     class CompanyStocksViewModel
     {
         public ObservableCollection<CompanyStocks> CompanyStocks { get; set; }
-        public String[] NASDAQCompanies = new string[] { "MSFT", "AAPL", "AMZN", "GOOGL", "GOOG" };
+        public String[] NASDAQCompanies = new string[] { "GOOG" };
         //public String[] NASDAQCompanies = new string[] { "MSFT" };
 
         public CompanyStocksViewModel()
