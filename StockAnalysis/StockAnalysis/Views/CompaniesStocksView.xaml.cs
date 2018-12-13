@@ -23,6 +23,7 @@ namespace StockAnalysis.Views
 
             companiesStocksViewModel = new CompanyStocksViewModel();
             BindingContext = companiesStocksViewModel;
+
         }
 
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
@@ -42,6 +43,9 @@ namespace StockAnalysis.Views
         {
             base.OnAppearing();
             await companiesStocksViewModel.UpdateCompanyStocksAsync();
+
+            this.WaitingDataView.IsVisible = false;
+            this.MyListView.IsVisible = true;
         }
     }
 }

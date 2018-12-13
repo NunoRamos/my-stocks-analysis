@@ -4,25 +4,33 @@
             x:Class="StockAnalysis.Views.CompaniesStocksView"
              Title="List of Companies"
              Icon="baseline_list_black_18dp.png">
-    <ListView x:Name="MyListView"
+
+    <StackLayout HorizontalOptions="Center">
+        <ContentView x:Name="WaitingDataView"
+                     >
+            <Label Text="Retrieving data" />
+        </ContentView>
+
+        <ListView x:Name="MyListView"
             ItemsSource="{Binding CompanyStocks}"
             ItemTapped="Handle_ItemTapped"
-            CachingStrategy="RecycleElement">
+            CachingStrategy="RecycleElement"
+              IsVisible="False">
 
-        <!--Built in Cells-->
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <StackLayout>
-                        <Label Text="{Binding Symbol}" />
-                        <Label Text="{Binding AtualPrice}" />
-                    </StackLayout>
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
+            <!--Built in Cells-->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding Symbol}" />
+                            <Label Text="{Binding AtualPrice}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
 
-        <!--Custom View Cells-->
-        <!--
+            <!--Custom View Cells-->
+            <!--
     <ListView.ItemTemplate>
       <DataTemplate>
         <ViewCell>
@@ -36,5 +44,7 @@
       </DataTemplate>
     </ListView.ItemTemplate>
     -->
-    </ListView>
+        </ListView>
+    </StackLayout>
+    
 </ContentPage>
