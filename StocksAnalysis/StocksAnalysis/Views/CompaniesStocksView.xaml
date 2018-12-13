@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="StocksAnalysis.Views.CompaniesStocksView"
+             Title="List of Companies"
+             Icon="baseline_list_black_18dp.png">
+
+    <StackLayout HorizontalOptions="Center">
+        <ContentView x:Name="WaitingDataView"
+                     >
+            <Label Text="Retrieving data" />
+        </ContentView>
+
+        <ListView x:Name="CompaniesStocksListView"
+            ItemsSource="{Binding CompanyStocks}"
+            ItemTapped="Handle_ItemTapped"
+            CachingStrategy="RecycleElement"
+              IsVisible="False">
+
+            <!--Built in Cells-->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding Symbol}" />
+                            <Label Text="{Binding AtualPrice}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+            <!--Custom View Cells-->
+            <!--
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <StackLayout>
+            <Label Text="{Binding Text}" 
+                   Style="{DynamicResource ListItemTextStyle}" />
+            <Label Text="{Binding Detail}" 
+                   Style="{DynamicResource ListItemDetailTextStyle}"/>
+          </StackLayout>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+    -->
+        </ListView>
+    </StackLayout>
+    
+</ContentPage>
