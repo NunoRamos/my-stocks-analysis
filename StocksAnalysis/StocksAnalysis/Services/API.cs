@@ -9,7 +9,8 @@ namespace StocksAnalysis.Services
 {
     static class API
     {
-        const string BASE_URL = "http://10.227.144.149:3000";
+        // const string BASE_URL = "http://10.227.144.149:3000";
+        const String BASE_URL = "https://stock-analysis-api.herokuapp.com";
 
         public static async Task<List<CompanyStocks>> GetCompaniesStocks(String[] companies)
         {

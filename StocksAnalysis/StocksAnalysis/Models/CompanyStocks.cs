@@ -29,5 +29,15 @@ namespace StocksAnalysis.Models
 
         [JsonProperty("10. change percent")]
         public String ChangePercent { get; set; }
+
+        public String SymbolAndAtualPrice
+        {
+            get
+            {
+                return Symbol + "\n" + AtualPrice;
+            }
+        }
+
+        public String PercentIcon { get; set; }
     }
 }

@@ -12,19 +12,60 @@
         </ContentView>
 
         <ListView x:Name="CompaniesStocksListView"
-            ItemsSource="{Binding CompanyStocks}"
-            ItemTapped="Handle_ItemTapped"
-            CachingStrategy="RecycleElement"
-              IsVisible="False">
+                ItemsSource="{Binding CompanyStocks}"
+                ItemTapped="Handle_ItemTapped"
+                CachingStrategy="RecycleElement" HasUnevenRows="True"
+                RowHeight="100"
+                IsVisible="False">
 
             <!--Built in Cells-->
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ViewCell>
-                        <StackLayout>
-                            <Label Text="{Binding Symbol}" />
-                            <Label Text="{Binding AtualPrice}" />
-                        </StackLayout>
+                    <ViewCell x:Name="MainView" Height="100">
+                        <RelativeLayout x:Name="MainLayout">
+                            <Image Source="companies_icon.png" x:Name="Company-Icon" HeightRequest="75" WidthRequest="75"
+                                    RelativeLayout.XConstraint="{ConstraintExpression
+                                    Type=RelativeToParent,
+                                    Property=Width,
+                                    Factor=0.05}"
+                                   RelativeLayout.YConstraint="{ConstraintExpression
+                                    Type=RelativeToParent,
+                                    Property=Height,
+                                    Factor=0.5,
+                                    Constant=-40}"/>
+                            <StackLayout Orientation="Vertical" VerticalOptions="Center" 
+                                         RelativeLayout.XConstraint="{ConstraintExpression
+                                        Type=RelativeToParent,
+                                        Property=Width,
+                                        Factor=0.25}"
+                                       RelativeLayout.YConstraint="{ConstraintExpression
+                                        Type=RelativeToParent,
+                                        Property=Height,
+                                        Factor=0.35}">
+                                <Label Text="{Binding Symbol}" FontFamily="Sans-serif"/>
+                                <Label Text="{Binding AtualPrice}" FontFamily="Sans-serif"/>
+                            </StackLayout>
+                            <Label Text="{Binding ChangePercent}" FontFamily="Sans-serif"
+                                   RelativeLayout.XConstraint="{ConstraintExpression
+                                        Type=RelativeToParent,
+                                        Property=Width,
+                                        Factor=0.7}"
+                                    RelativeLayout.YConstraint="{ConstraintExpression
+                                        Type=RelativeToParent,
+                                        Property=Height,
+                                        Factor=0.4}"
+                                   />
+                            <Image x:Name="PercentIcon" Source="{Binding PercentIcon}" HeightRequest="50" WidthRequest="50"
+                                   RelativeLayout.XConstraint="{ConstraintExpression
+                                        Type=RelativeToParent,
+                                        Property=Width,
+                                        Factor=0.85}"
+                                   RelativeLayout.YConstraint="{ConstraintExpression
+                                        Type=RelativeToParent,
+                                        Property=Height,
+                                        Factor=0.5,
+                                        Constant=-25}"/>
+                        </RelativeLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
