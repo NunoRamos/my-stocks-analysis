@@ -39,7 +39,7 @@ namespace StocksAnalysis.Views
             ((ListView)sender).SelectedItem = null;
         }
 
-        async void Handle_ItemToggled(object sender, ToggledEventArgs e)
+        void Handle_ItemToggled(object sender, ToggledEventArgs e)
         {
             Xamarin.Forms.Switch s = sender as Xamarin.Forms.Switch;
             Debug.WriteLine(s.BindingContext);
