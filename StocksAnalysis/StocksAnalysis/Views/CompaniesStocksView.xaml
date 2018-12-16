@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             x:Class="StocksAnalysis.Views.CompaniesStocksView"
-             Title="List of Companies"
+             Title="Top 10"
              Icon="baseline_list_black_18dp.png">
 
     <StackLayout HorizontalOptions="Center">

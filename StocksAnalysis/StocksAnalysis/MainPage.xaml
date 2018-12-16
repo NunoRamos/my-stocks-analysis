@@ -8,14 +8,14 @@
             Title="Stock Analysis">
 
     <local:CompaniesStocksView></local:CompaniesStocksView>
-    <ContentPage Title="Sou o maior" Icon="baseline_trending_up_black_18dp.png">
+    <ContentPage Title="Search" Icon="baseline_trending_up_black_18dp.png">
         <ContentPage.Content>
             <StackLayout>
                 <Label Text="Chupamos melo" />
             </StackLayout>
         </ContentPage.Content>
     </ContentPage>
-    <ContentPage Title="Sou o maior" Icon="baseline_attach_money_black_18dp.png">
+    <ContentPage Title="Crypto" Icon="baseline_attach_money_black_18dp.png">
         <ContentPage.Content>
             <StackLayout>
                 <Label Text="Chupamos melo" />

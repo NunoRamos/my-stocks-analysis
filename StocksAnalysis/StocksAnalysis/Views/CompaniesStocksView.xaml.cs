@@ -14,14 +14,14 @@ namespace StocksAnalysis.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CompaniesStocksView : ContentPage
     {
-        CompanyStocksViewModel companiesStocksViewModel;
+        CompaniesStocksViewModel companiesStocksViewModel;
         CompanyStockView companyView;
 
         public CompaniesStocksView()
         {
             InitializeComponent();
 
-            companiesStocksViewModel = new CompanyStocksViewModel();
+            companiesStocksViewModel = new CompaniesStocksViewModel();
             BindingContext = companiesStocksViewModel;
 
         }
