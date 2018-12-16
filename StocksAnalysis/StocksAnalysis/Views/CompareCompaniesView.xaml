@@ -1,14 +1,46 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
              x:Class="StocksAnalysis.Views.CompareCompaniesView"
              Title="Compare Companies"
              Icon="baseline_trending_up_black_18dp.png">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text = "{Binding  Symbol}" HorizontalTextAlignment="Center"/>
+            <ScrollView>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text = "Price variation" Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center"/>
+                    <forms:ChartView x:Name="Chart1" HeightRequest="200" Grid.Row="1" Grid.Column="0"/>
+                    <Label Text = "Open Price variation" Grid.Row="2" Grid.Column="0" HorizontalTextAlignment="Center"/>
+                    <forms:ChartView x:Name="Chart2" HeightRequest="200" Grid.Row="3" Grid.Column="0"/>
+                    <Label Text = "Close Price variation"  Grid.Row="4" Grid.Column="0" HorizontalTextAlignment="Center"/>
+                    <forms:ChartView x:Name="Chart3" HeightRequest="200" Grid.Row="5" Grid.Column="0"/>
+                    <Label Text = "Higher Price variation" Grid.Row="6" Grid.Column="0" HorizontalTextAlignment="Center"/>
+                    <forms:ChartView x:Name="Chart4" HeightRequest="200" Grid.Row="7" Grid.Column="0"/>
+                    <Label Text = "Lower Price variation"  Grid.Row="8" Grid.Column="0" HorizontalTextAlignment="Center"/>
+                    <forms:ChartView x:Name="Chart5" HeightRequest="200" Grid.Row="9" Grid.Column="0"/>
+                    <Label Text = "Volume variation"  Grid.Row="10" Grid.Column="0" HorizontalTextAlignment="Center"/>
+                    <forms:ChartView x:Name="Chart6" HeightRequest="200" Grid.Row="11" Grid.Column="0"/>
+                </Grid>
+            </ScrollView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

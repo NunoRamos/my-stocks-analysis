@@ -10,8 +10,8 @@ namespace StocksAnalysis.Services
 {
     static class API
     {
-        const string BASE_URL = "http://192.168.1.7:3000";
-        //const String BASE_URL = "https://stock-analysis-api.herokuapp.com";
+        //const string BASE_URL = "http://192.168.1.7:3000";
+        const String BASE_URL = "https://stock-analysis-api.herokuapp.com";
 
         public static async Task<List<CompanyStocks>> GetCompaniesStocks(String[] companies)
         {
@@ -33,6 +33,18 @@ namespace StocksAnalysis.Services
             using (var httpClient = new HttpClient())
             {
                 var jsonString = await httpClient.GetStringAsync(BASE_URL + "/companies/monthly-stats/[\""+ company + "\"]");
+                companyHistoryPrices = JsonConvert.DeserializeObject<List<CompanyHistoryPrices>>(jsonString);
+            }
+
+            return companyHistoryPrices;
+        }
+
+        public static async Task<List<CompanyHistoryPrices>> GetCompaniesHistory(String[] companies)
+        {
+            List<CompanyHistoryPrices> companyHistoryPrices = new List<CompanyHistoryPrices>();
+            using (var httpClient = new HttpClient())
+            {
+                var jsonString = await httpClient.GetStringAsync(BASE_URL + "/companies/monthly-stats/[\"" + string.Join("\", \"", companies) + "\"]");
                 companyHistoryPrices = JsonConvert.DeserializeObject<List<CompanyHistoryPrices>>(jsonString);
             }
 
