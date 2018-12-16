@@ -5,10 +5,10 @@
              Title="Top 10"
              Icon="baseline_list_black_18dp.png">
 
-    <StackLayout HorizontalOptions="Center">
-        <ContentView x:Name="WaitingDataView"
-                     >
-            <Label Text="Retrieving data" />
+    <StackLayout HorizontalOptions="Center" Orientation="Vertical" VerticalOptions="Center">
+        <ContentView x:Name="WaitingDataView">
+            
+            <Image Source="loading.gif"/>
         </ContentView>
 
         <ListView x:Name="CompaniesStocksListView"
