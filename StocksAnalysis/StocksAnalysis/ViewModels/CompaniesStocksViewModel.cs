@@ -9,12 +9,12 @@ using System.Globalization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StocksAnalysis.ViewsModels
+namespace StocksAnalysis.ViewModels
 {
     class CompaniesStocksViewModel
     {
         public ObservableCollection<CompanyStocks> CompanyStocks { get; set; }
-        public String[] NASDAQCompanies = new string[] { "MSFT", "AAPL", "AMZN", "GOOGL", "GOOG" };
+        public String[] NASDAQCompanies = new string[] { "MSFT", "AAPL", "AMZN", "GOOGL", "GOOG", "FB", "INTC", "CSCO", "CMCSA", "PEP" };
 
         public CompaniesStocksViewModel()
         {
@@ -27,7 +27,6 @@ namespace StocksAnalysis.ViewsModels
             this.CompanyStocks.Clear();
             companyStocks.ForEach((companyStock) =>
             {
-                Debug.WriteLine(companyStock.ChangePercent.TrimEnd("%".ToCharArray()));
                 Double percent = double.Parse(companyStock.ChangePercent.TrimEnd("%".ToCharArray()), CultureInfo.InvariantCulture);
                 if (percent > 0)
                     companyStock.PercentIcon = "up_arrow.png";

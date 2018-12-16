@@ -1,4 +1,4 @@
-﻿using StocksAnalysis.Models;
+using StocksAnalysis.Models;
 using StocksAnalysis.Services;
 using System;
 using System.Collections.Generic;

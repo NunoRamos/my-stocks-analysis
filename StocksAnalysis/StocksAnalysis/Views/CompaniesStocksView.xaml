@@ -1,13 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            x:Class="StocksAnalysis.Views.CompaniesStocksView"
-             Title="Top 10"
-             Icon="baseline_list_black_18dp.png">
+              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              x:Class="StocksAnalysis.Views.CompaniesStocksView"
+              Title="Top 10"
+              Icon="baseline_list_black_18dp.png">
 
     <StackLayout HorizontalOptions="Center" Orientation="Vertical" VerticalOptions="Center">
         <ContentView x:Name="WaitingDataView">
-            
             <Image Source="loading.gif"/>
         </ContentView>
 
@@ -65,6 +64,15 @@
                                         Property=Height,
                                         Factor=0.5,
                                         Constant=-25}"/>
+                            <Switch x:Name="SwitchElement" Toggled="Handle_ItemToggled" BindingContext="{Binding Symbol}"
+                                    RelativeLayout.XConstraint="{ConstraintExpression
+                                        Type=RelativeToParent,
+                                        Property=Width,
+                                        Factor=0.85}"
+                                   RelativeLayout.YConstraint="{ConstraintExpression
+                                        Type=RelativeToParent,
+                                        Property=Height,
+                                        Factor=0.75}"/>
                         </RelativeLayout>
                     </ViewCell>
                 </DataTemplate>

@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
 
-namespace StocksAnalysis.ViewsModels
+namespace StocksAnalysis.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
