@@ -24,94 +24,6 @@ namespace StocksAnalysis.Views
 		{
             this.companySymbol = companySymbol;
             this.companyStockViewModel = new CompanyStocksViewModel(companySymbol);
-            List<Entry> entries = new List<Entry>
-            {
-                new Entry(1)
-                {
-                    
-                    Color = SKColor.Parse("#FF1493"),
-                    Label = "TEST1",
-                    ValueLabel = "200"
-
-                },
-                new Entry(2)
-                {
-                    Color = SKColor.Parse("#FF1493"),
-                    Label = "TEST2",
-                    ValueLabel = "50"
-
-                },
-                new Entry(3)
-                {
-                    Color = SKColor.Parse("#FF1493"),
-                    Label = "TEST3",
-                    ValueLabel = "100"
-
-                },new Entry(3)
-                {
-
-                    Color = SKColor.Parse("#FF1493"),
-                    Label = "TEST1",
-                    ValueLabel = "200"
-
-                },
-                new Entry(4)
-                {
-                    Color = SKColor.Parse("#FF1493"),
-                    Label = "TEST2",
-                    ValueLabel = "50"
-
-                },
-                new Entry(0)
-                {
-                    Color = SKColor.Parse("#FF1493"),
-                    Label = "TEST3",
-                    ValueLabel = "100"
-
-                },new Entry(3)
-                {
-
-                    Color = SKColor.Parse("#FF1493"),
-                    Label = "TEST1",
-                    ValueLabel = "200"
-
-                },
-                new Entry(6)
-                {
-                    Color = SKColor.Parse("#FF1493"),
-                    Label = "TEST2",
-                    ValueLabel = "50"
-
-                },
-                new Entry(10)
-                {
-                    Color = SKColor.Parse("#FF1493"),
-                    Label = "TEST3",
-                    ValueLabel = "100"
-
-                },new Entry(8)
-                {
-
-                    Color = SKColor.Parse("#FF1493"),
-                    Label = "TEST1",
-                    ValueLabel = "200"
-
-                },
-                new Entry(12)
-                {
-                    Color = SKColor.Parse("#FF1493"),
-                    Label = "TEST2",
-                    ValueLabel = "50"
-
-                },
-                new Entry(16)
-                {
-                    Color = SKColor.Parse("#FF1493"),
-                    Label = "TEST3",
-                    ValueLabel = "100"
-
-                }
-            };
             BindingContext = new { Symbol = companySymbol };
 
             InitializeComponent ();
@@ -139,33 +51,41 @@ namespace StocksAnalysis.Views
                 float volume = (float)value["5. volume"];
 
                 entriesOpenPrice.Add(new Entry(open){
-                    Color = SKColor.Parse("#0000FF")
-                });
+                    Color = SKColor.Parse("#0000FF"),
+                    ValueLabel = string.Format("{0:0.0}", open)
+            });
                 entriesClosePrice.Add(new Entry(close)
                 {
-                    Color = SKColor.Parse("#008000")
+                    Color = SKColor.Parse("#008000"),
+                    ValueLabel = string.Format("{0:0.0}", close)
                 });
                 entriesHighPrice.Add(new Entry(high)
                 {
-                    Color = SKColor.Parse("#FFFF00")
+                    Color = SKColor.Parse("#FFFF00"),
+                    ValueLabel = string.Format("{0:0.0}", high)
                 });
                 entriesLowPrice.Add(new Entry(low)
                 {
-                    Color = SKColor.Parse("#FFA500")
+                    Color = SKColor.Parse("#FFA500"),
+                    ValueLabel = string.Format("{0:0.0}", low)
                 });
                 entriesVolume.Add(new Entry(volume)
                 {
-                    Color = SKColor.Parse("#000000")
+                    Color = SKColor.Parse("#000000"),
+                    ValueLabel = string.Format("{0:0.0}", volume)
                 });
             }
 
             this.companyStockViewModel.CompanyStocks.ClosePriceVariations.ForEach((price) =>
             {
                 entriesDailyPriceVariation.Add(new Entry((float)price) {
-                    Color = SKColor.Parse("#FF1493")
+                    Color = SKColor.Parse("#FF1493"),
+                    ValueLabel = string.Format("{0:0.00}", price)
                 });
             });
             Chart1.Chart = new BarChart { Entries = entriesDailyPriceVariation };
+
+
             Chart2.Chart = new LineChart { Entries = entriesOpenPrice };
             Chart3.Chart = new LineChart { Entries = entriesClosePrice };
             Chart4.Chart = new LineChart { Entries = entriesHighPrice };

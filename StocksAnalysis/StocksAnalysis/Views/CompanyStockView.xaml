@@ -26,7 +26,7 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Label Text = "Price variation" Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center"/>
-                    <forms:ChartView x:Name="Chart1" HeightRequest="200" Grid.Row="1" Grid.Column="0"/>
+                    <forms:ChartView  Orientaion x:Name="Chart1" HeightRequest="200" Grid.Row="1" Grid.Column="0"/>
                     <Label Text = "Open Price variation" Grid.Row="2" Grid.Column="0" HorizontalTextAlignment="Center"/>
                     <forms:ChartView x:Name="Chart2" HeightRequest="200" Grid.Row="3" Grid.Column="0"/>
                     <Label Text = "Close Price variation"  Grid.Row="4" Grid.Column="0" HorizontalTextAlignment="Center"/>
