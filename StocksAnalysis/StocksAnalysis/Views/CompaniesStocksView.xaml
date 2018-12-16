@@ -48,7 +48,7 @@
                                    RelativeLayout.XConstraint="{ConstraintExpression
                                         Type=RelativeToParent,
                                         Property=Width,
-                                        Factor=0.7}"
+                                        Factor=0.5}"
                                     RelativeLayout.YConstraint="{ConstraintExpression
                                         Type=RelativeToParent,
                                         Property=Height,
@@ -58,7 +58,7 @@
                                    RelativeLayout.XConstraint="{ConstraintExpression
                                         Type=RelativeToParent,
                                         Property=Width,
-                                        Factor=0.85}"
+                                        Factor=0.7}"
                                    RelativeLayout.YConstraint="{ConstraintExpression
                                         Type=RelativeToParent,
                                         Property=Height,
@@ -72,7 +72,8 @@
                                    RelativeLayout.YConstraint="{ConstraintExpression
                                         Type=RelativeToParent,
                                         Property=Height,
-                                        Factor=0.75}"/>
+                                        Factor=0.5,
+                                        Constant=-10}"/>
                         </RelativeLayout>
                     </ViewCell>
                 </DataTemplate>
