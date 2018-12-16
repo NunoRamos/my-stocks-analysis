@@ -5,11 +5,16 @@
              x:Class="StocksAnalysis.Views.CompanyStockView">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text = "PAGE2"/>
+            <Label Text = "{Binding  Symbol}" HorizontalTextAlignment="Center"/>
             <ScrollView>
-                <!--<forms:ChartView x:Name="Chart1" HeightRequest="140"/>-->
                 <Grid>
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
@@ -20,11 +25,18 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <forms:ChartView x:Name="Chart1" HeightRequest="200" Grid.Row="0" Grid.Column="0"/>
-                    <Label HeightRequest = "200" Text="Top" Grid.Row="1" Grid.Column="0" HorizontalTextAlignment="Center"/>
-                    <Label HeightRequest = "200" Text="Top" Grid.Row="2" Grid.Column="0" HorizontalTextAlignment="Center"/>
-                    <Label HeightRequest = "200" Text="Top" Grid.Row="3" Grid.Column="0" HorizontalTextAlignment="Center"/>
-                    <Label HeightRequest = "200" Text="Top" Grid.Row="4" Grid.Column="0" HorizontalTextAlignment="Center"/>
+                    <Label Text = "Price variation" Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center"/>
+                    <forms:ChartView x:Name="Chart1" HeightRequest="200" Grid.Row="1" Grid.Column="0"/>
+                    <Label Text = "Price variation" Grid.Row="2" Grid.Column="0" HorizontalTextAlignment="Center"/>
+                    <forms:ChartView x:Name="Chart2" HeightRequest="200" Grid.Row="3" Grid.Column="0"/>
+                    <Label Text = "Price variation" Grid.Row="4" Grid.Column="0" HorizontalTextAlignment="Center"/>
+                    <forms:ChartView x:Name="Chart3" HeightRequest="200" Grid.Row="5" Grid.Column="0"/>
+                    <Label Text = "Price variation" Grid.Row="6" Grid.Column="0" HorizontalTextAlignment="Center"/>
+                    <forms:ChartView x:Name="Chart4" HeightRequest="200" Grid.Row="7" Grid.Column="0"/>
+                    <Label Text = "Price variation" Grid.Row="8" Grid.Column="0" HorizontalTextAlignment="Center"/>
+                    <forms:ChartView x:Name="Chart5" HeightRequest="200" Grid.Row="9" Grid.Column="0"/>
+                    <Label Text = "Price variation" Grid.Row="10" Grid.Column="0" HorizontalTextAlignment="Center"/>
+                    <forms:ChartView x:Name="Chart6" HeightRequest="200" Grid.Row="11" Grid.Column="0"/>
 
                 </Grid>
             </ScrollView>

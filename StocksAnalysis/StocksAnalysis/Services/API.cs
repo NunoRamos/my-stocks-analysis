@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace StocksAnalysis.Services
 {
@@ -26,12 +27,12 @@ namespace StocksAnalysis.Services
             return companyStocks;
         }
 
-        public static async Task<List<CompanyHistoryPrices>> GetCompanieHistory(String[] companies)
+        public static async Task<List<CompanyHistoryPrices>> GetCompanyHistory(String company)
         {
             List<CompanyHistoryPrices> companyHistoryPrices = new List<CompanyHistoryPrices>();
             using (var httpClient = new HttpClient())
             {
-                var jsonString = await httpClient.GetStringAsync(BASE_URL + "/companies/daily-quote/" + "[\"" + string.Join("\", \"", companies) + "\"]");
+                var jsonString = await httpClient.GetStringAsync(BASE_URL + "/companies/monthly-stats/[\"GOOG\"]");
                 companyHistoryPrices = JsonConvert.DeserializeObject<List<CompanyHistoryPrices>>(jsonString);
             }
 
