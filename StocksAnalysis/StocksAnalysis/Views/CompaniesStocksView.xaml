@@ -64,6 +64,15 @@
                                         Property=Height,
                                         Factor=0.5,
                                         Constant=-25}"/>
+                            <Switch x:Name="SwitchElement" Toggled="Handle_ItemToggled" BindingContext="{Binding Symbol}"
+                                    RelativeLayout.XConstraint="{ConstraintExpression
+                                        Type=RelativeToParent,
+                                        Property=Width,
+                                        Factor=0.85}"
+                                   RelativeLayout.YConstraint="{ConstraintExpression
+                                        Type=RelativeToParent,
+                                        Property=Height,
+                                        Factor=0.75}"/>
                         </RelativeLayout>
                     </ViewCell>
                 </DataTemplate>

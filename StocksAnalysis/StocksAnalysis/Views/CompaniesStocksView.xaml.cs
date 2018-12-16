@@ -3,6 +3,9 @@ using StocksAnalysis.Models;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Diagnostics;
+using System.Collections.Generic;
+using System;
 
 namespace StocksAnalysis.Views
 {
@@ -11,6 +14,7 @@ namespace StocksAnalysis.Views
     {
         CompaniesStocksViewModel companiesStocksViewModel;
         CompanyStockView companyView;
+        public List<String> companiesToggled { get; set; }
 
         public CompaniesStocksView()
         {
@@ -18,6 +22,7 @@ namespace StocksAnalysis.Views
 
             companiesStocksViewModel = new CompaniesStocksViewModel();
             BindingContext = companiesStocksViewModel;
+            companiesToggled = new List<string>();
 
         }
 
@@ -32,6 +37,16 @@ namespace StocksAnalysis.Views
 
             //Deselect Item
             ((ListView)sender).SelectedItem = null;
+        }
+
+        async void Handle_ItemToggled(object sender, ToggledEventArgs e)
+        {
+            Xamarin.Forms.Switch s = sender as Xamarin.Forms.Switch;
+            Debug.WriteLine(s.BindingContext);
+            if(companiesToggled.Contains((String)s.BindingContext)) 
+                companiesToggled.Remove((String)s.BindingContext);
+            else
+                companiesToggled.Add((String)s.BindingContext);
         }
 
         protected override async void OnAppearing()
