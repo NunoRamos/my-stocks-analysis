@@ -32,6 +32,9 @@ namespace StocksAnalysis.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
+
+            if (companiesStocksView.companiesToggled.Count() == 0) return;
+
             String[] companiesSymbol = companiesStocksView.companiesToggled.ToArray();
 
             await compareCompaniesViewModel.UpdateCompanyStocksAsync(companiesSymbol);
