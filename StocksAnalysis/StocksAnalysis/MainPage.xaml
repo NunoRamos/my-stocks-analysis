@@ -6,12 +6,5 @@
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
             android:TabbedPage.ToolbarPlacement="Bottom"
             Title="Stock Analysis">
-    <!--<ContentPage Title="Crypto" Icon="baseline_attach_money_black_18dp.png">
-        <ContentPage.Content>
-            <StackLayout>
-                <Label Text="Chupamos melo" />
-            </StackLayout>
-        </ContentPage.Content>
-    </ContentPage>-->
 
 </TabbedPage>

@@ -12,17 +12,14 @@ namespace StocksAnalysis
     {
         CompaniesStocksView companiesStocksView { get; set; }
         CompareCompaniesView compareCompaniesView { get; set; }
-        CryptoListView cryptoListView { get; set; }
 
         public MainPage()
         {
             InitializeComponent();
             companiesStocksView = new CompaniesStocksView();
             compareCompaniesView = new CompareCompaniesView(companiesStocksView);
-            cryptoListView = new CryptoListView();
             Children.Add(companiesStocksView);
             Children.Add(compareCompaniesView);
-            Children.Add(cryptoListView);
         }
     }
 }
