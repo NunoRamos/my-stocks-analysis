@@ -27,6 +27,8 @@ namespace StocksAnalysis.ViewModels
             this.CompanyStocks.Clear();
             companyStocks.ForEach((companyStock) =>
             {
+                companyStock.LogoImage = companyStock.Symbol + ".png";
+
                 Double percent = double.Parse(companyStock.ChangePercent.TrimEnd("%".ToCharArray()), CultureInfo.InvariantCulture);
                 if (percent > 0)
                     companyStock.PercentIcon = "up_arrow.png";

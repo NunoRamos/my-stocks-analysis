@@ -103,6 +103,8 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AAPL.png" />
+    <Content Include="AMZN.png" />
     <Content Include="Assets\baseline_attach_money_black_18dp.png" />
     <Content Include="Assets\baseline_list_black_18dp.png" />
     <Content Include="Assets\baseline_trending_up_black_18dp.png" />
@@ -148,9 +150,17 @@
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
     </AndroidResource>
+    <Content Include="CMCSA.png" />
     <Content Include="companies_icon.png" />
+    <Content Include="CSCO.png" />
     <Content Include="down_arrow.png" />
+    <Content Include="FB.png" />
+    <Content Include="GOOG.png" />
+    <Content Include="GOOGL.png" />
+    <Content Include="INTC.png" />
     <Content Include="loading.gif" />
+    <Content Include="MSFT.png" />
+    <Content Include="PEP.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="up_arrow.png" />
   </ItemGroup>

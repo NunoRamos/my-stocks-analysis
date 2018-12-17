@@ -22,7 +22,7 @@
                 <DataTemplate>
                     <ViewCell x:Name="MainView" Height="100">
                         <RelativeLayout x:Name="MainLayout">
-                            <Image Source="companies_icon.png" x:Name="Company-Icon" HeightRequest="75" WidthRequest="75"
+                            <Image Source="{Binding LogoImage}" x:Name="Company-Icon" HeightRequest="75" WidthRequest="75"
                                     RelativeLayout.XConstraint="{ConstraintExpression
                                     Type=RelativeToParent,
                                     Property=Width,

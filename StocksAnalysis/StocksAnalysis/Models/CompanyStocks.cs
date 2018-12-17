@@ -39,5 +39,7 @@ namespace StocksAnalysis.Models
         }
 
         public String PercentIcon { get; set; }
+
+        public String LogoImage { get; set; }
     }
 }
