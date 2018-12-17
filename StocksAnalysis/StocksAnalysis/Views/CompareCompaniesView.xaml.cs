@@ -36,15 +36,30 @@ namespace StocksAnalysis.Views
 
             await compareCompaniesViewModel.UpdateCompanyStocksAsync(companiesSymbol);
 
+            List<Entry> entriesDailyPriceVariation = new List<Entry>();
+            List<Entry> entriesOpenPrice = new List<Entry>();
+            List<Entry> entriesClosePrice = new List<Entry>();
+            List<Entry> entriesHighPrice = new List<Entry>();
+            List<Entry> entriesLowPrice = new List<Entry>();
+            List<Entry> entriesVolume = new List<Entry>();
+
+            List<Entry> entriesDailyPriceVariation2 = new List<Entry>();
+            List<Entry> entriesOpenPrice2 = new List<Entry>();
+            List<Entry> entriesClosePrice2 = new List<Entry>();
+            List<Entry> entriesHighPrice2 = new List<Entry>();
+            List<Entry> entriesLowPrice2 = new List<Entry>();
+            List<Entry> entriesVolume2 = new List<Entry>();
+
+            var x = 0;
+
             foreach (CompanyHistoryPrices companyHistoryPrice in this.compareCompaniesViewModel.CompaniesHistory)
             {
-                List<Entry> entriesDailyPriceVariation = new List<Entry>();
-                List<Entry> entriesOpenPrice = new List<Entry>();
-                List<Entry> entriesClosePrice = new List<Entry>();
-                List<Entry> entriesHighPrice = new List<Entry>();
-                List<Entry> entriesLowPrice = new List<Entry>();
-                List<Entry> entriesVolume = new List<Entry>();
-
+                var color = "";
+                if (x == 0)
+                    color = "#0000FF";
+                else
+                    color = "#008000";
+                
                 foreach (var day in companyHistoryPrice.Stats)
                 {
                     string date = day.Key;
@@ -55,43 +70,95 @@ namespace StocksAnalysis.Views
                     float close = (float)value["4. close"];
                     float volume = (float)value["5. volume"];
 
-                    entriesOpenPrice.Add(new Entry(open)
+                    if (x == 0)
                     {
-                        Color = SKColor.Parse("#0000FF")
-                    });
-                    entriesClosePrice.Add(new Entry(close)
+                        entriesOpenPrice.Add(new Entry(open)
+                        {
+                            Color = SKColor.Parse(color),
+                            ValueLabel = string.Format("{0:0.0}", open)
+                        });
+                        entriesClosePrice.Add(new Entry(close)
+                        {
+                            Color = SKColor.Parse(color),
+                            ValueLabel = string.Format("{0:0.0}", close)
+                        });
+                        entriesHighPrice.Add(new Entry(high)
+                        {
+                            Color = SKColor.Parse(color),
+                            ValueLabel = string.Format("{0:0.0}", high)
+                        });
+                        entriesLowPrice.Add(new Entry(low)
+                        {
+                            Color = SKColor.Parse(color),
+                            ValueLabel = string.Format("{0:0.0}", low)
+                        });
+                        entriesVolume.Add(new Entry(volume)
+                        {
+                            Color = SKColor.Parse(color),
+                            ValueLabel = string.Format("{0:0.0}", volume)
+                        });
+                    }else
                     {
-                        Color = SKColor.Parse("#008000")
-                    });
-                    entriesHighPrice.Add(new Entry(high)
-                    {
-                        Color = SKColor.Parse("#FFFF00")
-                    });
-                    entriesLowPrice.Add(new Entry(low)
-                    {
-                        Color = SKColor.Parse("#FFA500")
-                    });
-                    entriesVolume.Add(new Entry(volume)
-                    {
-                        Color = SKColor.Parse("#000000")
-                    });
+                        entriesOpenPrice2.Add(new Entry(open)
+                        {
+                            Color = SKColor.Parse(color),
+                            ValueLabel = string.Format("{0:0.0}", open)
+                        });
+                        entriesClosePrice2.Add(new Entry(close)
+                        {
+                            Color = SKColor.Parse(color),
+                            ValueLabel = string.Format("{0:0.0}", close)
+                        });
+                        entriesHighPrice2.Add(new Entry(high)
+                        {
+                            Color = SKColor.Parse(color),
+                            ValueLabel = string.Format("{0:0.0}", high)
+                        });
+                        entriesLowPrice2.Add(new Entry(low)
+                        {
+                            Color = SKColor.Parse(color),
+                            ValueLabel = string.Format("{0:0.0}", low)
+                        });
+                        entriesVolume2.Add(new Entry(volume)
+                        {
+                            Color = SKColor.Parse(color),
+                            ValueLabel = string.Format("{0:0.0}", volume)
+                        });
+                    }
                 }
 
                 companyHistoryPrice.ClosePriceVariations.ForEach((price) =>
                 {
-                    entriesDailyPriceVariation.Add(new Entry((float)price)
+                    if(x == 0)
                     {
-                        Color = SKColor.Parse("#FF1493")
-                    });
-                });
+                        entriesDailyPriceVariation.Add(new Entry((float)price)
+                        {
+                            Color = SKColor.Parse(color),
+                            ValueLabel = string.Format("{0:0.0}", price)
+                        });
+                    }else
+                        entriesDailyPriceVariation2.Add(new Entry((float)price)
+                        {
+                            Color = SKColor.Parse(color),
+                            ValueLabel = string.Format("{0:0.0}", price)
+                        });
 
-                Chart1.Chart = new BarChart { Entries = entriesDailyPriceVariation };
-                Chart2.Chart = new LineChart { Entries = entriesOpenPrice };
-                Chart3.Chart = new LineChart { Entries = entriesClosePrice };
-                Chart4.Chart = new LineChart { Entries = entriesHighPrice };
-                Chart5.Chart = new LineChart { Entries = entriesLowPrice };
-                Chart6.Chart = new LineChart { Entries = entriesVolume };
+                });
+                x++;
             }
+            Chart1.Chart = new BarChart { Entries = entriesDailyPriceVariation };
+            Chart2.Chart = new LineChart { Entries = entriesOpenPrice };
+            Chart3.Chart = new LineChart { Entries = entriesClosePrice };
+            Chart4.Chart = new LineChart { Entries = entriesHighPrice };
+            Chart5.Chart = new LineChart { Entries = entriesLowPrice };
+            Chart6.Chart = new LineChart { Entries = entriesVolume };
+
+            Chart7.Chart = new BarChart { Entries = entriesDailyPriceVariation2 };
+            Chart8.Chart = new LineChart { Entries = entriesOpenPrice2 };
+            Chart9.Chart = new LineChart { Entries = entriesClosePrice2 };
+            Chart10.Chart = new LineChart { Entries = entriesHighPrice2 };
+            Chart11.Chart = new LineChart { Entries = entriesLowPrice2 };
+            Chart12.Chart = new LineChart { Entries = entriesVolume2 };
         }
     }
 }
